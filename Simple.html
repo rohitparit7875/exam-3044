@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login + Game</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #e0f2fe, #fef9c3);
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 320px;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover { background: #1e40af; }
+    .game-box { display: none; }
+    .message { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <!-- Login -->
+  <div class="box login-box" id="loginBox">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- Game -->
+  <div class="box game-box" id="gameBox">
+    <h2>Guess the Number 🎮</h2>
+    <p>I’m thinking of a number between 1 and 20.</p>
+    <input type="number" id="guess" placeholder="Enter your guess">
+    <button onclick="checkGuess()">Submit</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    let secretNumber;
+    let attempts;
+
+    function login() {
+      let user = document.getElementById("username").value;
+      let pass = document.getElementById("password").value;
+      if(user && pass) {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("gameBox").style.display = "block";
+        startGame();
+      } else {
+        alert("Enter username & password!");
+      }
+    }
+
+    function startGame() {
+      secretNumber = Math.floor(Math.random() * 20) + 1;
+      attempts = 0;
+      document.getElementById("message").innerText = "";
+      document.getElementById("guess").value = "";
+    }
+
+    function checkGuess() {
+      let guess = Number(document.getElementById("guess").value);
+      attempts++;
+      if(!guess) {
+        document.getElementById("message").innerText = "Please enter a number!";
+        return;
+      }
+      if(guess === secretNumber) {
+        document.getElementById("message").innerText = `🎉 Correct! You guessed it in ${attempts} tries.`;
+      } else if(guess < secretNumber) {
+        document.getElementById("message").innerText = "📉 Too low! Try again.";
+      } else {
+        document.getElementById("message").innerText = "📈 Too high! Try again.";
+      }
+    }
+  </script>
+</body>
+</html>
