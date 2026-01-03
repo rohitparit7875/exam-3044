@@ -1,0 +1,13 @@
+Explanation:
+Part
+Meaning
+#include <iostream>
+Input-Output library
+using namespace std;
+Avoids writing std:: repeatedly
+int main()
+Program execution starts here
+cout
+Output
+return 0;
+Program ends
