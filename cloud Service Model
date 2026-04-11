@@ -1,0 +1,4 @@
+1. Cloud Service Models (IaaS, PaaS, SaaS)
+IaaS (Infrastructure as a Service): You manage OS, apps (e.g., Amazon Web Services EC2)
+PaaS (Platform as a Service): Platform managed, you deploy apps (e.g., Google Cloud Platform App Engine)
+SaaS (Software as a Service): Fully managed apps (e.g., Microsoft 365)
