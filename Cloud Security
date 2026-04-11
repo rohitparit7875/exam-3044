@@ -1,0 +1,5 @@
+🔐 3. Cloud Security Basics
+Shared Responsibility Model: Cloud provider + user both secure parts
+IAM (Identity & Access Management): Controls access
+Encryption: Data protected at rest & in transit
+Compliance: GDPR, ISO standards
